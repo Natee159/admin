@@ -18,6 +18,9 @@ const App = () => {
       <Head />
       <NavBar />
       <Switch>
+      <Route exact path="/">
+          <Login />
+        </Route>
         <Route path="/insert">
           <Insert />
         </Route>
@@ -26,9 +29,6 @@ const App = () => {
         </Route>
         <Route path="/admin">
           <Admin />
-        </Route>
-        <Route path="/">
-          <Login />
         </Route>
       </Switch>
     </Router>

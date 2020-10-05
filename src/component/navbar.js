@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import {
   Collapse,
   Navbar,
@@ -15,20 +14,30 @@ import {
   Container,
   CardImg
 } from 'reactstrap';
-
+import { useHistory } from "react-router-dom";
+import getCookie from './getCookie.js';
 import {
   BrowserRouter as Link
 } from "react-router-dom";
-
+import React, { useState, useEffect } from 'react';
 const NavBar = (props) => {
     const [isOpen, setIsOpen] = useState(false);
-  
+    const [user, setUser] = useState()
     const toggle = () => setIsOpen(!isOpen);
+    const history = useHistory();
+    const logout = () => {
+      document.cookie = "username=; path=/;"
+      document.cookie = "Customer_ID=; path=/;"
+      history.push("/")
+      history.go(0)
+    }
+    useEffect(() => {
+      setUser(getCookie("username"))
+    }, []);
   
     return (
     <Navbar color="light" light expand="md">
         <Container>
-          <NavbarBrand href="/">Home</NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
@@ -44,7 +53,15 @@ const NavBar = (props) => {
             </Nav>
             <Nav>
             <NavItem>
-            <NavLink href="/login">เข้าสู่ระบบ</NavLink>
+            {
+              getCookie("username") === "" ?
+              <NavItem>
+                <NavLink href="/">เข้าสู่ระบบ</NavLink>
+              </NavItem> :
+              <NavItem>
+                <NavLink onClick={logout} href="#">ออกจากระบบ</NavLink>
+              </NavItem>
+            }
             </NavItem>
             </Nav>
           </Collapse>

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Row, Col, Button } from 'reactstrap';
-
+import { useHistory } from "react-router-dom";
+import getCookie from '../component/getCookie.js';
 const Update = () => {
     const [Product_id, setProduct_id] = useState()
     const [Product_name, setProduct_name] = useState()
@@ -13,7 +14,7 @@ const Update = () => {
     const [Price, setPrice] = useState()
     const [Category_ID, setCategory_ID] = useState()
     const [Promotion_id, setPromotion_id] = useState()
-
+    const history = useHistory();
     const handleSubmit = event => {
         event.preventDefault();
         alert('update');
@@ -34,6 +35,12 @@ const Update = () => {
                 console.log(res.data);
             })
     }
+
+    useEffect(() => {
+        if(getCookie("username") === ""){
+            history.push("/")
+          }
+}, []);
 
     return (
         <Container>

@@ -2,17 +2,21 @@ import React, { useState, useEffect } from 'react';
 import '../App.css';
 import { Button, Container, Table } from 'reactstrap';
 import axios from 'axios';
-
+import { useHistory } from "react-router-dom";
+import getCookie from '../component/getCookie.js';
 const Admin = () => {
     const [data, setData] = useState([])
     // const [refre, setData] = useState([])
-
+    const history = useHistory();
     useEffect(() => {
         axios.get(`http://localhost/api/product/read.php`)
             .then(res => {
                 console.log(res.data.records)
                 setData(res.data.records)
             })
+            if(getCookie("username") === ""){
+                history.push("/")
+              }
     }, []);
 
     return (
