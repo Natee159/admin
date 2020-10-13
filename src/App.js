@@ -6,6 +6,7 @@ import Admin from './page/admin.js';
 import Insert from './page/insert.js';
 import Update from './page/update.js';
 import Login from './page/login.js';
+import Salesum from './page/salesum.js';
 import {
   BrowserRouter as Router,
   Switch,
@@ -29,6 +30,9 @@ const App = () => {
         </Route>
         <Route path="/admin">
           <Admin />
+        </Route>
+        <Route path="/salesum">
+          <Salesum />
         </Route>
       </Switch>
     </Router>

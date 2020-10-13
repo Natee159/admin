@@ -36,6 +36,7 @@ const Admin = () => {
                         <th>Category_ID</th>
                         <th>Promotion_id</th>
                         <th>delete</th>
+                        <th>update</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,6 +57,22 @@ const Tr = (props) => {
             })
         window.location.reload(false);
     }
+    const history = useHistory();
+    const handleClick = () => {
+        history.push({
+            pathname : '/update',
+            Product_id: props.data.Product_id,
+            Product_name: props.data.Product_name,
+            Author_name : props.data.Author_name,
+            Publi_name : props.data.Publi_name,
+            Detail: props.data.Detail,
+            Img : props.data.Image,
+            Total : props.data.Total,
+            Price : props.data.Price,
+            Category_ID : props.data.Category_ID,
+            Promotion_id : props.data.Promotion_id
+        });
+    }
 
     return (
         <tr>
@@ -70,7 +87,7 @@ const Tr = (props) => {
             <td>{props.data.Category_ID}</td>
             <td>{props.data.Promotion_id}</td>
             <td><Button onClick={() => Delete(props.data.Product_id)} >Delete</Button></td>
-            {/* <td><Button onClick={() => update(props.data.Product_id)} >Delete</Button></td> */}
+            <td><Button onClick={handleClick} >update</Button></td>
         </tr>
     );
 }

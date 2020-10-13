@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Row, Col, Button } from 'reactstrap';
+import { useLocation } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import getCookie from '../component/getCookie.js';
 const Update = () => {
     const [Product_id, setProduct_id] = useState()
@@ -15,6 +17,8 @@ const Update = () => {
     const [Category_ID, setCategory_ID] = useState()
     const [Promotion_id, setPromotion_id] = useState()
     const history = useHistory();
+    const [data, setData] = useState([])
+    const { dataall } = useParams();
     const handleSubmit = event => {
         event.preventDefault();
         alert('update');
@@ -35,12 +39,22 @@ const Update = () => {
                 console.log(res.data);
             })
     }
-
+    const location = useLocation();
     useEffect(() => {
+        setProduct_id(location.Product_id)
+        setProduct_name(location.Product_name)
+        setAuthor_name(location.Author_name)
+        setPubli_name(location.Publi_name)
+        setDetail(location.Detail)
+        setImage(location.Img)
+        setTotal(location.Total)
+        setPrice(location.Price)
+        setCategory_ID(location.Category_ID)
+        setPromotion_id(location.Promotion_id)
         if(getCookie("username") === ""){
             history.push("/")
           }
-}, []);
+}, [location]);
 
     return (
         <Container>
@@ -53,7 +67,7 @@ const Update = () => {
                                 <p>Product_id</p>
                             </Col>
                             <Col>
-                                <input type="text" onChange={e => { setProduct_id(e.target.value) }} />
+                                <input type="text" value={Product_id} onChange={e => { setProduct_id(e.target.value) }} />
                             </Col>
                         </Row>
                         <Row>
@@ -61,7 +75,7 @@ const Update = () => {
                                 <p>Product_name</p>
                             </Col>
                             <Col>
-                                <input type="text" onChange={e => { setProduct_name(e.target.value) }} />
+                                <input type="text" value={Product_name} onChange={e => { setProduct_name(e.target.value) }} />
                             </Col>
                         </Row>
                         <Row>
@@ -69,7 +83,7 @@ const Update = () => {
                                 <p>Author_name</p>
                             </Col>
                             <Col>
-                                <input type="text" onChange={e => { setAuthor_name(e.target.value) }} />
+                                <input type="text" value={Author_name} onChange={e => { setAuthor_name(e.target.value) }} />
                             </Col>
                         </Row>
                         <Row>
@@ -77,7 +91,7 @@ const Update = () => {
                                 <p>Publi_name</p>
                             </Col>
                             <Col>
-                                <input type="text" onChange={e => { setPubli_name(e.target.value) }} />
+                                <input type="text" value={Publi_name} onChange={e => { setPubli_name(e.target.value) }} />
                             </Col>
                         </Row>
                         <Row>
@@ -85,7 +99,7 @@ const Update = () => {
                                 <p>Detail</p>
                             </Col>
                             <Col>
-                                <input type="text" onChange={e => { setDetail(e.target.value) }} />
+                                <input type="text" value={Detail} onChange={e => { setDetail(e.target.value) }} />
                             </Col>
                         </Row>
                         <Row>
@@ -93,7 +107,7 @@ const Update = () => {
                                 <p>Image</p>
                             </Col>
                             <Col>
-                                <input type="text" onChange={e => { setImage(e.target.value) }} />
+                                <input type="text" value={Image} onChange={e => { setImage(e.target.value) }} />
                             </Col>
                         </Row>
                         <Row>
@@ -101,7 +115,7 @@ const Update = () => {
                                 <p>Total</p>
                             </Col>
                             <Col>
-                                <input type="text" onChange={e => { setTotal(e.target.value) }} />
+                                <input type="text" value={Total} onChange={e => { setTotal(e.target.value) }} />
                             </Col>
                         </Row>
                         <Row>
@@ -109,7 +123,7 @@ const Update = () => {
                                 <p>Price</p>
                             </Col>
                             <Col>
-                                <input type="text" onChange={e => { setPrice(e.target.value) }} />
+                                <input type="text" value={Price} onChange={e => { setPrice(e.target.value) }} />
                             </Col>
                         </Row>
                         <Row>
@@ -117,7 +131,7 @@ const Update = () => {
                                 <p>Category_ID</p>
                             </Col>
                             <Col>
-                                <input type="text" onChange={e => { setCategory_ID(e.target.value) }} />
+                                <input type="text" value={Category_ID} onChange={e => { setCategory_ID(e.target.value) }} />
                             </Col>
                         </Row>
                         <Row>
@@ -125,7 +139,7 @@ const Update = () => {
                                 <p>Promotion_id</p>
                             </Col>
                             <Col>
-                                <input type="text" onChange={e => { setPromotion_id(e.target.value) }} />
+                                <input type="text" value={Promotion_id} onChange={e => { setPromotion_id(e.target.value) }} />
                             </Col>
                         </Row>
                         <Button color="primary" type="submit">Add</Button>
