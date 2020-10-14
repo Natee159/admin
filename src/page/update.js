@@ -11,24 +11,25 @@ const Update = () => {
     const [Author_name, setAuthor_name] = useState()
     const [Publi_name, setPubli_name] = useState()
     const [Detail, setDetail] = useState()
-    const [Image, setImage] = useState()
     const [Total, setTotal] = useState()
     const [Price, setPrice] = useState()
     const [Category_ID, setCategory_ID] = useState()
     const [Promotion_id, setPromotion_id] = useState()
     const history = useHistory();
-    const [data, setData] = useState([])
-    const { dataall } = useParams();
+    const [selectedFile, setSelectedFile] = useState(null)
     const handleSubmit = event => {
         event.preventDefault();
         alert('update');
+        const fd = new FormData();
+        fd.append('image', selectedFile, selectedFile.name);
+        axios.post(`http://localhost/api/product/uploadimg.php`, fd)
         axios.post(`http://localhost/api/product/update.php`, JSON.stringify({
             "Product_id": Product_id,
             "Product_name": Product_name,
             "Author_name": Author_name,
             "Publi_name": Publi_name,
             "Detail": Detail,
-            "Image": Image,
+            "Image": selectedFile.name,
             "Total": Total,
             "Price": Price,
             "Category_ID": Category_ID,
@@ -38,6 +39,7 @@ const Update = () => {
                 console.log(res);
                 console.log(res.data);
             })
+            history.push("/admin")
     }
     const location = useLocation();
     useEffect(() => {
@@ -46,7 +48,6 @@ const Update = () => {
         setAuthor_name(location.Author_name)
         setPubli_name(location.Publi_name)
         setDetail(location.Detail)
-        setImage(location.Img)
         setTotal(location.Total)
         setPrice(location.Price)
         setCategory_ID(location.Category_ID)
@@ -107,7 +108,7 @@ const Update = () => {
                                 <p>Image</p>
                             </Col>
                             <Col>
-                                <input type="text" value={Image} onChange={e => { setImage(e.target.value) }} />
+                                <input type="file"  onChange={e => { setSelectedFile(e.target.files[0]) }} />
                             </Col>
                         </Row>
                         <Row>
