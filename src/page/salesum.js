@@ -8,6 +8,8 @@ import { PureComponent } from 'react';
 import {
     BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
+import { useHistory } from "react-router-dom";
+import getCookie from '../component/getCookie.js';
 const Salesum = () => {
     const [data, setData] = useState();
     const [date, setDate] = useState()
@@ -25,6 +27,7 @@ const Salesum = () => {
     const [total4, setTotal4] = useState()
     const [total5, setTotal5] = useState()
     const [total6, setTotal6] = useState()
+    const history = useHistory();
     useEffect(() => {
         axios.get(`http://localhost/api/product/graph.php`)
             .then(res => {
@@ -77,6 +80,9 @@ const Salesum = () => {
                 
 
             })
+            if (getCookie("username") === "") {
+                history.push("/")
+          }
 
     }, []);
     const dataall = [
