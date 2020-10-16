@@ -16,7 +16,7 @@ const Login = () => {
                         console.log(res.data.Status)
                         if (res.data.Email === "Admin@hotmail.com" && Password === "1234") {
                               alert("เข้าสู่หน้าระบบ")
-                              document.cookie = "username=" + res.data.Email + "; path=/"
+                              document.cookie = "usernameadmin=" + res.data.Email + "; path=/"
                               document.cookie = "Customer_ID=" + res.data.Customer_id + "; path=/"
                               history.push("/admin")
                               history.go(0)

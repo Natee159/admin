@@ -40,7 +40,7 @@ const Insert = () => {
       }
 
       useEffect(() => {
-            if (getCookie("username") === "") {
+            if (getCookie("usernameadmin") === "") {
                   history.push("/")
             }
       }, []);

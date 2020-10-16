@@ -14,7 +14,7 @@ const Admin = () => {
                 console.log(res.data.records)
                 setData(res.data.records)
             })
-            if(getCookie("username") === ""){
+            if(getCookie("usernameadmin") === ""){
                 history.push("/")
               }
     }, []);

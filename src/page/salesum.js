@@ -80,7 +80,7 @@ const Salesum = () => {
                 
 
             })
-            if (getCookie("username") === "") {
+            if (getCookie("usernameadmin") === "") {
                 history.push("/")
           }
 

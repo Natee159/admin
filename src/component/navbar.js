@@ -26,7 +26,7 @@ const NavBar = (props) => {
     const toggle = () => setIsOpen(!isOpen);
     const history = useHistory();
     const logout = () => {
-      document.cookie = "username=; path=/;"
+      document.cookie = "usernameadmin=; path=/;"
       document.cookie = "Customer_ID=; path=/;"
       history.push("/")
       history.go(0)
@@ -54,7 +54,7 @@ const NavBar = (props) => {
             <Nav>
             <NavItem>
             {
-              getCookie("username") === "" ?
+              getCookie("usernameadmin") === "" ?
               <NavItem>
                 <NavLink href="/">เข้าสู่ระบบ</NavLink>
               </NavItem> :

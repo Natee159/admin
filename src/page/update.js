@@ -52,7 +52,7 @@ const Update = () => {
         setPrice(location.Price)
         setCategory_ID(location.Category_ID)
         setPromotion_id(location.Promotion_id)
-        if(getCookie("username") === ""){
+        if(getCookie("usernameadmin") === ""){
             history.push("/")
           }
 }, [location]);
