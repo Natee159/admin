@@ -3,7 +3,6 @@ import axios from 'axios';
 import { Container, Row, Col, Button } from 'reactstrap';
 import { useLocation } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import { useParams } from "react-router-dom";
 import getCookie from '../component/getCookie1.js';
 const Update = () => {
     const [Product_id, setProduct_id] = useState()
