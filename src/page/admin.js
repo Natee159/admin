@@ -3,7 +3,7 @@ import '../App.css';
 import { Button, Container, Table } from 'reactstrap';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
-import getCookie from '../component/getCookie.js';
+import getCookie from '../component/getCookie1.js';
 const Admin = () => {
     const [data, setData] = useState([])
     // const [refre, setData] = useState([])

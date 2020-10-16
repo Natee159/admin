@@ -10,7 +10,7 @@ const Login = () => {
 
       const handleSubmit = event => {
             event.preventDefault();
-            axios.get(`http://localhost/api/product/login.php?Email=` + Email + '&Password=' + Password)
+            axios.get(`http://localhost/api/product/loginadmin.php?Email=` + Email + '&Password=' + Password)
                   .then(res => {
                         console.log(res.data.Email)
                         console.log(res.data.Status)

@@ -9,7 +9,7 @@ import {
     BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
 } from 'recharts';
 import { useHistory } from "react-router-dom";
-import getCookie from '../component/getCookie.js';
+import getCookie from '../component/getCookie1.js';
 const Salesum = () => {
     const [data, setData] = useState();
     const [date, setDate] = useState()

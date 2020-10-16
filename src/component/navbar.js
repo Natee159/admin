@@ -15,7 +15,7 @@ import {
   CardImg
 } from 'reactstrap';
 import { useHistory } from "react-router-dom";
-import getCookie from './getCookie.js';
+import getCookie from './getCookie1.js';
 import {
   BrowserRouter as Link
 } from "react-router-dom";
@@ -42,7 +42,7 @@ const NavBar = (props) => {
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
               <NavItem>
-                <NavLink href="/admin">Admin</NavLink>
+                <NavLink href="/admin">showbook</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/insert">Insert</NavLink>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Row, Col, Button } from 'reactstrap';
 import { useHistory } from "react-router-dom";
-import getCookie from '../component/getCookie.js';
+import getCookie from '../component/getCookie1.js';
 const Insert = () => {
       const [selectedFile, setSelectedFile] = useState(null)
       const [Product_name, setProduct_name] = useState()

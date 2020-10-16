@@ -4,7 +4,7 @@ import { Container, Row, Col, Button } from 'reactstrap';
 import { useLocation } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import getCookie from '../component/getCookie.js';
+import getCookie from '../component/getCookie1.js';
 const Update = () => {
     const [Product_id, setProduct_id] = useState()
     const [Product_name, setProduct_name] = useState()
@@ -108,7 +108,7 @@ const Update = () => {
                                 <p>Image</p>
                             </Col>
                             <Col>
-                                <input type="file"  onChange={e => { setSelectedFile(e.target.files[0]) }} />
+                                <input type="file" onChange={e => { setSelectedFile(e.target.files[0]) }} />
                             </Col>
                         </Row>
                         <Row>
