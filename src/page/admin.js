@@ -29,14 +29,22 @@ const Admin = () => {
                         <th>Product_Name</th>
                         <th>Author_Name</th>
                         <th>Public_Name</th>
-                        <th>Detail</th>
+                        
+                        <th> Detail</th>
+                        <th>   </th>
+                        <th>   </th>
+                        <th>   </th>
+                        <th>   </th>
+                        <th>   </th>
+                        
                         <th>Image</th>
                         <th>Total</th>
                         <th>Price</th>
                         <th>Category_ID</th>
                         <th>Promotion_id</th>
-                        <th>delete</th>
-                        <th>update</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -77,10 +85,10 @@ const Tr = (props) => {
     return (
         <tr>
             <td>{props.data.Product_id}</td>
-            <td>{props.data.Product_name}</td>
+            <td >{props.data.Product_name}</td>
             <td>{props.data.Author_name}</td>
             <td>{props.data.Publi_name}</td>
-            <td>{props.data.Detail}</td>
+            <td colSpan="6">{props.data.Detail}</td>
             <td><img src={require("../component/img/" + props.data.Image)} alt={props.data.image} width="80" height="100"/></td> 
             <td>{props.data.Total}</td>
             <td>{props.data.Price}</td>
